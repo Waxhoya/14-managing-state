@@ -21,6 +21,8 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+    // This method is in the middleware chain for /author/:authorName. It is called before article.controller.index. It finds articles using the parameter authorName and sets it to ctx.articles
+
   articlesController.loadByAuthor = function(ctx, next) {
     var authorData = function(articlesByAuthor) {
       ctx.articles = articlesByAuthor;
@@ -33,6 +35,8 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This is in the middleware chain for /category/:categoryName. It is called before article.controller.index. It finds articles using the parameters categoryName and sets it to ctx.articles
+
   articlesController.loadByCategory = function(ctx, next) {
     var categoryData = function(articlesInCategory) {
       ctx.articles = articlesInCategory;
