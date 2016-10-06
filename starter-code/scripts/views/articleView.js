@@ -38,9 +38,16 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+
+  //This method listens for a change to a select box under the ul with an id of filters. Upon a change, it
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
+
+      //sets a variable, resource, to the id of the select box that was changed, after replacing '-filter' with and empty string ( resulting in author or category)
       var resource = this.id.replace('-filter', '');
+
+      //then sets the route to / [the value of resource e.g. author]/[a string of the value of the selected author after replacing all whitespace with '+'] e.g. /author/captain+unicorn
+      //
       page('/' + resource + '/' + $(this).val().replace(/\W+/g, '+')); // Replace any/all whitespace with a +
     });
   };
