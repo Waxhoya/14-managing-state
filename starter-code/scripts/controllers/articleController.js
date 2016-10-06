@@ -47,6 +47,13 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  // This method is in the middleware chain for '/' it is called on
+  // before articlesController.index.
+  // If Article.all.length returns truthy, sets ctx. Articles to the  Article.all array
+  // If it returns falsy, then passes articleData to fetchAll as a callback function and sets ctx.articles to Article.all.
+
+
+
   articlesController.loadAll = function(ctx, next) {
     var articleData = function(allArticles) {
       ctx.articles = Article.all;
