@@ -89,6 +89,13 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+// This method takes an arguement(Articles). First if finds a section with the ID of articles which it shows. Then it hides all siblings.
+// Next it removes all articles in the article section.
+// Then it takes the array of articles that was passed in as an arguement, it iterates over the array, then appends it to the articles section after rendering it.
+// it populates the filters and runs handleFilters()
+// Finally if there is more than one article on the page it truncates the article after the first paragraph.
+
+
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
